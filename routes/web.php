@@ -11,6 +11,40 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('user')->group(function () {
+
+    Route::get('index', function () {
+        return view('admin.user.list');
+    });
+
+    Route::get('add', function () {
+        return view('admin.user.add');
+    });
+    Route::get('edit', function () {
+        return view('admin.user.edit');
+    });
 });
+
+Route::prefix('test')->group(function () {
+    Route::get('/', function () {
+        return view('admin.test.list');
+    });
+
+    Route::get('/add',function(){
+        return view('admin.test.add');
+    });
+
+    Route::get('/edit',function(){
+        return view('admin.test.edit');
+    });
+});
+
+Route::prefix('question')->group(function () {
+    Route::get('add', function () {
+        return view('admin.question.add');
+    });
+});
+
+
+
+
